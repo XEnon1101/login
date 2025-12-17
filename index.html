@@ -1,0 +1,192 @@
+function sap() {
+  let aInput = Number(document.getElementById("num1").value);
+  let bInput = Number(document.getElementById("num2").value);
+  let cInput = Number(document.getElementById("num3").value);
+
+  let output = "";
+
+  //Bodlogo1
+  let a = aInput;
+  let b = bInput;
+
+  if (a > b) {
+    output += "Их тоо: " + a + "\n";
+  } else {
+    output += "Их тоо: " + b + "\n\n";
+  }
+
+  //Bodlogo2
+  let x = aInput;
+  let y = bInput;
+
+  if (x < y) {
+    output += "Бага тоо: " + x + "\n";
+  } else {
+    output += "Бага тоо: " + y + "\n";
+  }
+
+  //Bodlogo3
+  let a1 = aInput;
+  let b1 = bInput;
+  let c1 = cInput;
+
+  let min = a1;
+  if (b1 < min) min = b1;
+  if (c1 < min) min = c1;
+  output += "Хамгийн бага тоо: " + min + "\n";
+
+  //Bodlogo4
+  let a2 = aInput;
+  let b2 = bInput;
+  let c2 = cInput;
+
+  let max = a2;
+  if (b2 > max) {
+    max = b2;
+  }
+  if (c2 > max) {
+    max = c2;
+  }
+
+  output += "Хамгийн их тоо: " + max + "\n";
+
+  //Bodlogo5
+  function mid(a4, b4, c4) {
+    if ((a4 >= b4 && a4 <= c4) || (a4 >= c4 && a4 <= b4)) {
+      return a4;
+    } else if ((b4 >= a4 && b4 <= c4) || (b4 >= c4 && b4 <= a4)) {
+      return b4;
+    } else {
+      return c4;
+    }
+  }
+  output += "Дундах тоо: " + mid(aInput, bInput, cInput) + "\n";
+
+  //Bodlogo6
+  let n1 = aInput;
+  let n2 = bInput;
+  let n3 = cInput;
+  let avg = (n1 + n2 + n3) / 3;
+  output += "Дундаж: " + avg + "\n";
+
+  //Bodlogo7
+  let x1 = aInput;
+  let y1 = bInput;
+
+  if (x1 > y1) {
+    output += "Жижиг -> Том: " + y1 + ", " + x1 + "\n";
+  } else {
+    output += "Жижиг -> Том: " + x1 + ", " + y1 + "\n";
+  }
+
+  //Bodlogo8
+  let x2 = aInput;
+  let y2 = bInput;
+  let z2 = cInput;
+
+  if (x2 > y2) {
+    let temp = x2;
+    x2 = y2;
+    y2 = temp;
+  }
+
+  if (y2 > z2) {
+    let temp = y2;
+    y2 = z2;
+    z2 = temp;
+  }
+
+  if (x2 > y2) {
+    let temp = x2;
+    x2 = y2;
+    y2 = temp;
+  }
+
+  output += "Эрэмбэлсэн дараалал: " + x2 + ", " + y2 + ", " + z2 + "\n";
+
+  //Bodlogo9
+  function isPrime(n) {
+    if (n <= 1) {
+      return false;
+    }
+
+    let i = 2;
+    while (i < n) {
+      if (n % i === 0) {
+        return false;
+      }
+      i = i + 1;
+    }
+
+    return true;
+  }
+
+  let n = cInput;
+
+  for (let j = 0; j <= n; j++) {
+    if (isPrime(j)) {
+      output += j + ": Yes\n";
+    } else {
+      output += j + ": No\n";
+    }
+  }
+
+  //Bodlogo10
+  function isPalindrome(t) {
+    let ori = t;
+    let den = 0;
+
+    while (ori > 0) {
+      let digit = ori % 10;
+      den = (den * 10) + digit;
+      ori = Math.floor(ori / 10);
+    }
+
+    return den === t;
+  }
+
+  let w = cInput;
+  for (let i = 0; i <= w; i++) {
+    if (isPalindrome(i)) {
+      output += i + ": Yes\n";
+    } else {
+      output += i + ": No\n";
+    }
+  }
+
+  //Bodlogo11
+  function isPalindrome2(n) {
+    let or = n;
+    let de = 0;
+
+    while (or > 0) {
+      let digit = or % 10;
+      de = (de * 10) + digit;
+      or = Math.floor(or / 10);
+    }
+
+    return de === n;
+  }
+
+  function isPrime2(n) {
+    if (n <= 1) {
+      return false;
+    }
+
+    for (let i = 2; i <= n / 2; i++) {
+      if (n % i === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  let l = cInput;
+  output += "Palindrome ба Prime тоонууд:\n";
+  for (let i = 1; i <= l; i++) {
+    if (isPalindrome2(i) && isPrime2(i)) {
+      output += i + "\n";
+    }
+  }
+  document.getElementById("output").textContent = output;
+}
